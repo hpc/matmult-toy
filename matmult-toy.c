@@ -31,7 +31,7 @@
 #endif
 
 /* number of matrix rows and columns -- change if need be */
-#define MAT_RC_SIZE 1024
+#define MAT_RC_SIZE 4096
 
 #ifdef _HAVE_MPI
 #define MPICHK(mpi_ret, gtl) \
