@@ -1,0 +1,24 @@
+A simple OpenMP [+ MPI] code primarily used for OpenMP sanity.
+
+== Build
+o OpenMP
+  make
+
+o OpenMP + MPI
+  make mpi
+
+NOTE: you may need to change CFLAGS depending on your compiler.
+See Makefile:
+#pgi
+#CFLAGS = -mp
+# intel
+#CFLAGS = -openmp
+# gcc
+CFLAGS = -fopenmp
+
+== Set Number of OpenMP Threads (bash-like)
+export OMP_NUM_THREADS=16
+
+== NOTES
+Intel OpenMP
+export KMP_AFFINITY="verbose,proclist=[3,2,1,0]"
