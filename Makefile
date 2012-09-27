@@ -14,7 +14,6 @@
 
 SHELL  = /bin/sh
 TARGET = matmult-toy
-CC = cc
 
 #pgi
 #CFLAGS = -mp
