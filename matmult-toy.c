@@ -25,6 +25,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
+#include <sys/time.h>
 #ifdef _HAVE_MPI
 #include "mpi.h"
 #endif
@@ -162,7 +163,11 @@ err:
 int
 main(int argc, char **argv)
 {
-    int num_mpi_ranks = 0, my_mpi_rank = 0, mpi_hn_len = 0;
+#ifdef _HAVE_MPI
+    int num_mpi_ranks = 0;
+    int mpi_hn_len = 0;
+#endif
+    int my_mpi_rank = 0;
     char my_hostname[HN_BUF_LEN + 1];
     int openmp_iam = 0, openmp_np = 1;
     double mat_start = 0.0, mat_end = 0.0;
@@ -219,7 +224,8 @@ main(int argc, char **argv)
 #endif
     return EXIT_SUCCESS;
 
+#ifdef _HAVE_MPI
 err:
     return EXIT_FAILURE;
+#endif
 }
-
